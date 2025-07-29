@@ -1,0 +1,28 @@
+ 
+1.
+Give the Word Cloud for the MODEL_GROP for the period DDMMYY to DDMMYY
+Give the Word Cloud for the MODEL_GROP for the period 01-Jan-2024 to 31-Mar-2024
+2.
+Give the Word Cloud for the model description 'TREO YAARI SFT - No Records
+Give the Word Cloud for the model description "MAHINDRA XUV500 FWD W11 BS6 XDH0 NP" for the period 01-Jan-2024 to 31-Mar-2024
+Give the Word Cloud for the model group description "XUV500N" for the period 01-Jan-2024 to 31-Mar-2024
+Give the Word Cloud for the model group code 'XUVN' for the period 01-Jan-2024 to 31-Mar-2024
+3.
+Give the Word Cloud for the FAMLY_DESC for the period DDMMYY to DDMMYY
+Give the Word Cloud for the FAMLY_DESC for the period 01-Jan-2024 to 31-Mar-2024
+4.
+Give the Word Cloud for the FAMLY_DESC XUV300 Diesel MT BS6 for the period 01-Jan-2024 to 31-Dec-2024
+5.
+Give the Word Cloud for the Dealer (Dealer Parent Name) for the period DDMMYY to DDMMYY
+Give the Word Cloud for the Dealer (Dealer Parent Name) for the period 01-Jan-2024 to 31-Mar-2024
+Give the Word Cloud for the Dealer KARNATAKA AGENCIES for the period 01-Jan-2024 to 31-Mar-2024
+6.
+Give the Word Cloud for the Location (Dealer Location) for the period DDMMYY to DDMMYY
+Give the Word Cloud for the Location (Dealer Location) for the period 01-Jan-2024 to 31-Mar-2024
+7.
+Give the Word Cloud for the Area Office (Dealer Area Office) for the period DDMMYY to DDMMYY
+Give the Word Cloud for the Area Office (Dealer Area Office) for the period 01-Jan-2024 to 31-Dec-2024
+8.
+Give the Word Cloud for the Zone (Dealer Zone) for the period DDMMYY to DDMMYY
+Give the Word Cloud for the Zone (Dealer Zone) for the period 01-Jan-2024 to 31-Dec-2024
+ 

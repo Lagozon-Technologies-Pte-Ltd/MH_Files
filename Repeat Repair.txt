@@ -1,0 +1,56 @@
+ 
+1.
+Give me the Top 5 reported Customer Verbatim for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for the period 01-Jan-2024 to 31-Mar-2024
+2.
+Give me the Top 5 reported OEM Parts Consumption for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for FAMLY_DESC for the period 01-Jan-2024 to 31-Mar-2024
+3.
+Give me the Top 5 reported Local Parts Consumption for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for Dealer (Dealer Parent Name) for the period 01-Jan-2024 to 31-Mar-2024
+4.
+Give me the Top 5 reported OEM Labour Consumption for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for Location (Dealer Location) for the period 01-Jan-2024 to 31-Mar-2024
+5.
+Give me the Top 5 reported Dealer Labour Consumption for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for Area Office (Dealer Area Office) for the period 01-Jan-2024 to 31-Mar-2024
+6.
+Give me the Top 5 reported Dealer Labour Consumption for the Repeat Repair from DDMMYY to DDMMYY
+Give me the Top 5 reported VoC's which repeat the most for Zone (Dealer Zone) for the period 01-Jan-2024 to 31-Mar-2024
+7.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for MODEL_GROP
+Give me the Top 5 reported PARTS which repeat the most for MODEL_GROP for the period 01-Jan-2024 to 31-Mar-2024
+8.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for FAMLY_DESC
+Give me the Top 5 reported PARTS which repeat the most for FAMLY_DESC TREO for the period 01-Jan-2024 to 31-Mar-2024
+9.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for Dealer (Dealer Parent Name)
+Give me the Top 5 reported PARTS which repeat the most for Dealer (Dealer Parent Name) for the period 01-Jan-2024 to 31-Mar-2024
+10.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for Location (Dealer Location)
+Give me the Top 5 reported PARTS which repeat the most for Location (Dealer Location) for the period 01-Jan-2024 to 31-Mar-2024
+11.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for Area Office (Dealer Area Office)
+Give me the Top 5 reported PARTS which repeat the most for Area Office (Dealer Area Office) for the period 01-Jan-2024 to 31-Mar-2024
+12.
+Give me the Top 5 reported Part which repeat the most from DDMMYY to DDMMYY for Zone (Dealer Zone)
+Give me the Top 5 reported PARTS which repeat the most for Zone (Dealer Zone) for the period 01-Jan-2024 to 31-Mar-2024
+13.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for MODEL_GROP
+Give me the Top 5 reported Labour which repeat the most for MODEL_GROP for the period 01-Jan-2024 to 31-Mar-2024
+14.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for FAMLY_DESC
+Give me the Top 5 reported Labour which repeat the most for FAMLY_DESC for the period 01-Jan-2024 to 31-Mar-2024
+15.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for Dealer (Dealer Parent Name)
+Give me the Top 5 reported Labour which repeat the most for Dealer (Dealer Parent Name) for the period 01-Jan-2024 to 31-Mar-2024
+16.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for Location (Dealer Location)
+Give me the Top 5 reported Labour which repeat the most for Location (Dealer Location) for the period 01-Jan-2024 to 31-Mar-2024
+17.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for Area Office (Dealer Area Office)
+Give me the Top 5 reported Labour which repeat the most for Area Office (Dealer Area Office) for the period 01-Jan-2024 to 31-Mar-2024
+18.
+Give me the Top 5 reported Labour which repeat the most from DDMMYY to DDMMYY for Zone (Dealer Zone)
+Give me the Top 5 reported Labour which repeat the most for Zone (Dealer Zone) for the period 01-Jan-2024 to 31-Mar-2024
+ 

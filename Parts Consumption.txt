@@ -1,0 +1,189 @@
+1.
+Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+1.1 Provide the list of Top 10 consumed OEM part under Repair from 01-Jan-2024 to 30-Jun-2025
+2.
+Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.1 Provide the list of Top 10 consumed OEM part under Charging from 01-Jan-2024 to 30-Jun-2025
+2.2 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.3 Provide the list of Top 10 consumed OEM part under En-Route from 01-Jan-2024 to 31-Dec-2024
+2.4 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.5 Provide the list of Top 10 consumed OEM part under "Pre-Sale/PDI" from 01-Jan-2024 to 31-Dec-2024
+2.6 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.7 Provide the list of Top 10 consumed OEM part under Accessories from 01-Jan-2024 to 31-Dec-2024
+2.8 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.9 Provide the list of Top 10 consumed OEM part under "Bodyshop" from 01-Jan-2024 to 31-Dec-2024
+2.10 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.11 Provide the list of Top 10 consumed OEM part under "Paid Service" from 01-Jan-2024 to 31-Dec-2024
+2.12 Provide the list of Top XX consumed OEM or Local parts under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.13 Provide the list of Top 10 consumed OEM part under "Free Service" from 01-Jan-2024 to 31-Dec-2024
+2.14 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.15 Provide the list of Top 10 consumed Local part under Repair from 01-Jan-2024 to 30-Jun-2025
+2.16 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.17 Provide the list of Top 10 consumed Local part under Charging from 01-Jan-2024 to 31-Dec-2024
+2.18 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.19 Provide the list of Top 10 consumed Local part under En-Route from 01-Jan-2024 to 31-Dec-2024
+2.20 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.21 Provide the list of Top 10 consumed Local part under "Pre-Sale/PDI" from 01-Jan-2024 to 31-Dec-2024
+2.22 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.23 Provide the list of Top 10 consumed Local part under Accessories from 01-Jan-2024 to 31-Dec-2024
+2.24 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.25 Provide the list of Top 10 consumed Local part under "Bodyshop" from 01-Jan-2024 to 31-Dec-2024
+2.26 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.27 Provide the list of Top 10 consumed Local part under "Paid Service" from 01-Jan-2024 to 31-Dec-2024
+2.28 Provide the list of Top XX consumed Local part under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY to DDMMYY
+(Use Part Number as the Unique Key and the Output should be Part Number, Part Descp & Count in descending order).
+2.29 Provide the list of Top 10 consumed Local part under "Free Service" from 01-Jan-2024 to 31-Dec-2024
+3.
+List the Top 10 Dealers with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.1 List the Top 10 Dealers with highest OEM part consumption under Repair from 01-Jan-2024 to 30-Jun-2025
+3.2 List the Top 10 Dealers with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.3 List the Top 10 Dealers with highest OEM part consumption under Pre-Sale/PDI from 01-Jan-2024 to 30-Jun-2025
+3.4 List the Top 10 Dealers with highest part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.5 List the Top 10 Dealers with highest OEM part consumption under Bodyshop from 01-Jan-2024 to 31-Dec-2024
+3.6 List the Top 10 Dealers with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.7 List the Top 10 Dealers with highest OEM part consumption under Accessories from 01-Jan-2024 to 31-Dec-2024
+3.8 List the Top 10 Dealers with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.9 List the Top 10 Dealers with highest Local part consumption under Repair from 01-Jan-2024 to 30-Jun-2025
+3.10 List the Top 10 Dealers with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.11 List the Top 10 Dealers with highest Local part consumption under Pre-Sale/PDI from 01-Jan-2024 to 31-Dec-2024
+3.12 List the Top 10 Dealers with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.13 List the Top 10 Dealers with highest Local part consumption under Bodyshop from 01-Jan-2024 to 30-Jun-2025
+3.14 List the Top 10 Dealers with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY.
+3.15 List the Top 10 Dealers with highest Local part consumption under Accessories from 01-Jan-2024 to 31-Dec-2024
+4.
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.1 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM part consumption under Repair from 01-Jan-2024 to 31-Dec-2024
+4.2 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.3 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM part consumption under Pre-Sale/PDI from 01-Jan-2024 to 31-Dec-2024
+4.4 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.5 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM part consumption under Bodyshop from 01-Jan-2024 to 31-Dec-2024
+4.6 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.7 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM part consumption under Accessories from 01-Jan-2024 to 31-Dec-2024
+4.8 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.9 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest Local part consumption under Repair from 01-Jan-2024 to 31-Dec-2024
+4.10 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.11 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest Local part consumption under Pre-Sale/PDI from 01-Jan-2024 to 31-Dec-2024
+4.12 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.13 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest Local part consumption under Bodyshop from 01-Jan-2024 to 31-Dec-2024
+4.14 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest OEM/Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+4.15 List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest Local part consumption under Accessories from 01-Jan-2024 to 30-Jun-2025
+5.
+List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.1 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under Repair from 01-Jan-2024 to 30-Jun-2025
+5.2 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.3 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under Pre-Sale/PDI from 01-Jan-2024 to 31-Dec-2024
+5.4 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.5 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under Bodyshop from 01-Jan-2024 to 31-Dec-2024
+5.6 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.7 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest OEM part consumption under Accessories from 01-Jan-2024 to 31-Dec-2024
+5.8 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.9 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under Repair from 01-Jan-2024 to 30-June-2025
+5.10 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.11 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under Pre-Sale/PDI from 01-Jan-2024 to 31-Dec-2024
+5.12 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.13 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under Bodyshop from 01-Jan-2024 to 31-Dec-2024
+5.14 List the Top XX (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under
+Repair/Charging/En-Route/"Pre-Sale/PDI"/Accessories/Bodyshop/Paid Service/Free Service
+from DDMMYY To DDMMYY
+5.15 List the Top 10 (MODEL_GROP) & (FAMLY_DESC) with highest Local part consumption under Accessories from 01-Jan-2024 to 31-Dec-2024
+6.
+Top 10 OEM part which has been replaced (Consumed) in XX (MODEL_GROP) & (FAMLY_DESC) from DDMMYY to DDMMYY
+Top 10 OEM part which has been replaced (Consumed) in XX (MODEL_GROP) & (FAMLY_DESC) from 01-Jan-2024 to 31-Dec-2024
+6.1 Top 10 OEM Part which has been replaced (Consumed) in BOLMM7874866028 model code on 25th May 2024 order by quantity
+6.2 Top 10 OEM Part which has been replaced (Consumed) in X300 Model Group Code from 01-Jan-2024 to 25-Jun-2025 order by quantity
+6.3 Top 10 Local Part which has been replaced (Consumed) in XX (MODEL_GROP) & (FAMLY_DESC) from DDMMYY to DDMMYY
+6.4 Give the list of 5 most frequently replaced (Consumed) OEM or Local parts for XX (MODEL_GROP) & (FAMLY_DESC) by Quantity or Value in a specific Zone (Dealer Zone), Area Office (Dealer Area Office), Dealer (Dealer Parent Name), and Location (Dealer Location) from DDMMYY to DDMMYY
+ 

@@ -1,0 +1,20 @@
+select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.srv_mst_dim_model_maste
+
+
+select * from  mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.ddp_ad_ai_final_dimension
+
+
+select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.MH_RO_HDR_DETAILS
+
+
+select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.MH_RO_PARTS
+
+
+select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.MH_RO_LABOUR
+
+
+select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.verbatim_cmm_aruna
+
+
+==============================================
+
