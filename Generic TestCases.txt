@@ -59,3 +59,217 @@
 59.	Give the total PARTS amount billed for RO RO25D000730 for part category as Spares
 60.	Give the customer verbatim for the ROs created in Jan'25
 
+
+=====================================================
+
+how many dealers have both north and south zone
+
+WITH NorthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'north zone' ), SouthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'south zone' ) 
+SELECT COUNT(DISTINCT `NZD`.`DELR_CD`) AS `DEALERS_IN_BOTH_Z
+ONES` 
+FROM `NorthZoneDealers` AS `NZD` 
+INNER JOIN `SouthZoneDealers` AS `SZD` 
+ON `NZD`.`DELR_CD` = `SZD`.`DELR_CD`;
+
+
+
+=====================================================
+
+how many dealer have more than one zone
+
+
+SELECT COUNT(*) AS `DEALERS_WITH_MULTIPLE_Z
+ONES` 
+FROM (
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT LOWER(`AD`.`Z
+ONE_NAME`)) > 1) AS `MULTI_Z
+ONE_DEALERS`;
+
+
+answer is 67
+
+========================================
+
+give me 2 dealers who have more than one zone
+---
+
+
+give me all the zone details for these two dealers-- follow up questions-- seems to be wrong
+
+
+
+WITH Dealers_Multi_Zone AS ( 
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT `AD`.`Z
+ONE_NAME`) > 1 ) 
+SELECT `AD`.`DELR_CD` AS `DEALER_CODE`, `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`LOCTN_CD` AS `LOCATI
+ON_CODE`, `AD`.`LOCTN_NAME` AS `LOCATI
+ON_NAME`, `AD`.`Z
+ONE_NAME` AS `Z
+ONE_NAME`, `AD`.`AREA_NAME` AS `AREA_NAME`, `AD`.`ASM_NAME` AS `ASM_NAME`, `AD`.`CCM_NAME` AS `CCM_NAME`, `AD`.`RSM_NAME` AS `RSM_NAME`, `AD`.`RCCM_NAME` AS `RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES` AS `Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` AS `Z
+ONAL_HEAD_CUSTOMER_CARE` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+INNER JOIN Dealers_Multi_Zone AS `DMZ` 
+ON `AD`.`DELR_CD` = `DMZ`.`DELR_CD` 
+ORDER BY `AD`.`DELR_CD`, `AD`.`Z
+ONE_NAME` LIMIT 1000;
+
+
+
+
+
+========================================
+
+
+
+which dealer is the most preferred dealer
+
+449298
+
+ERAM MOTORS PVT. LTD.
+
+
+
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, COUNT(`ROHDR`.`RO_ID`) AS `REPAIR_ORDER_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+GROUP BY `AD`.`DELR_NAME` 
+ORDER BY `REPAIR_ORDER_COUNT` DESC LIMIT 1;
+
+
+
+========================================
+
+
+
+what is the highest number of ROs a particular dealer has
+
+
+same 
+
+
+
+========================================
+
+which is the most preferred model
+
+MAHINDRA BOLERO B6 (O) BS-VI	727108
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+	BOLMM0078780	BOLERO MDI-TC RIGID 7STR 2WD BSII	1
+
+
+
+
+
+
+========================================
+
+when was this RO created - follow up qusetion --wrong
+
+
+
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+
+PUPMM102511985	MAHINDRA BOLERO CAMPER 2WD (5 SEATER)	1
+
+========================================
+how many models have repair order count as 1
+
+310
+
+st all the models which have repari count as 1
+
+all 310
+========================================
+
+What is the revisit indicator for RO RO24B001437
+
+
+
+
+so many rows --check if that many records present in ro_hdr
+
+
+SELECT `ROHDR`.`REVIST_FLAG` AS `REVISIT_INDICATOR` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_ID` = 'RO24B001437' LIMIT 1000;
+
+
+========================================
+
+
+
+
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+
+
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+v
+
+
