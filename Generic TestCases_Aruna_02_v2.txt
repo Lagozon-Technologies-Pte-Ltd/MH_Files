@@ -1,0 +1,798 @@
+1.	List all models with their descriptions. Model code, model group, family description
+2.	Show all dealers with the zones, area, location code, location name, product division, and parent group
+3.	Get the total number of repair orders (RO) created in Jan'25
+4.	Find the seat capacity for each model.
+5.	Show all customer verbatim entries for a specific RO number RO25A007880
+6.	Show Demanded Verbatim--Show Word Cloud
+7.	List distinct parts used in a particular repair order RO25D000730
+8.	Give count of distinct parts used in particular repair order RO25D000730
+9.	Give count of parts used in particular repair order RO25D000730 where count is more than 1 grouped by part code
+10.	Display distinct labour code and labour descriptions for the RO: RO25D000730
+11.	Display count of distinct labour descriptions for the RO: RO25D000730
+12.	Show the total amount billed for each RO RO25D000730
+13.	Give me the service advisor and the technician name
+14.	Get all distinct details related to Model Family Desc and Dealer details about this RO RO25D000730
+15.	Give all distinct Parts category group for the given RO
+16.	What are distinct labour type names used in this RO
+17.	Is the vehicle Govt vehicle?
+18.	Is it a Taxi
+19.	What was total part consumption for this RO
+20.	List all models that use diesel as fuel.
+21.	Find the top 5 models with the highest seat capacity.
+22.	List all dealers in a North zone along with their Locations
+23.	Show the total labour amount and parts amount for each RO from 01-Jan-2025 to 31-Jan-2025
+24.	Get all ROs closed within last 180 days
+25.	List all parts with a discount greater than 10% for the ROs created in Jan'25
+26.	Find all ROs where the vehicle is a government vehicle.
+27.	Show the number of ROs per dealer for the month of Jan'25
+28.	Who was the topmost dealer for Jan'25
+29.	Show the number of ROs per dealer and total value for the month of Jan'25 ordered by total value
+30.	List all models and their associated variants and fuel types.
+31.	Find all customer verbatim entries grouped by verbatim group for ROs created between 01-Jan-2024 to 30 June 2025
+32.	Get the total quantity of each part used across all ROs.
+33.	How many ROs cancelled in 2022
+34.	How many ROs for vehicles towed were cancelled
+35.	For how many ROs vehicles were towed
+36.	How many ROs are there which were created in Jan'25 and closed within 5 months
+37.	How many ROs were created in 2022 and cancelled in 2022
+38.	What is the average closing duration for the ROs created in 2024
+39.	How many ROs were created in 2022 and closed in 2022
+40.	What is odometer reading for the vehicle with VIN MB7A8CLLFMJC30464
+41.	What is the RO bill date for the same?
+42.	How many ROs were created for vehicles with parent group SVN01 in 2023
+43.	How many repair orders with parent group SVN01 were created in 2023
+44.	What is the promised date for RO RO24B001437
+45.	What is the model for RO RO24B001437
+46.	What is the revisit indicator for RO RO24B001437
+47.	How many ROs took more than 72 hours to be serviced
+48.	What is the basic labour amount and total labour amount for RO RO24B001437
+49.	Retrieve all active variants (ACTV_IND = 'Y') for each FUEL_TYPE and count how many unique model codes exist per fuel type. Sort in descending order of model count.
+50.	Get the top 5 TRANSMISSION types used across all models, and for each, list the number of distinct variant codes and the average SEAT_CAPCTY.
+51.	List all SEGMNT_CD values where the average SEAT_CAPCTY is greater than 5. For each segment, also return the STRING_AGG of MODL_DESC values associated with it.
+52.	Identify which PRODCT_DIVSN has the most distinct MODL_GROP_CD values. Return the division name, count of distinct model group codes, and the top 3 most frequent FUEL_TYPEs in that division.
+53.	For each MODL_GROP_DESC, calculate the number of active (ACTV_IND = 'Y') and inactive models. Return only those groups where more than 50% of entries are inactive.
+54.	Show the BATCH codes where both ELECTRIC and DIESEL fuel types exist. For each such BATCH, return the total number of model entries and count of each FUEL_TYPE.
+55.	Identify all TRIM_LEVLs associated with exactly one unique SEAT_CAPCTY. Return the TRIM_LEVL, SEAT_CAPCTY, and the number of distinct variant codes for each.
+56.	Group all models by EMISSION standard and return: number of models in each, number of distinct transmission types, the most common DRIV type per EMISSION
+57.	For each VARNT_DESC starting with 'ZX', list how many models share the same MODL_GROP_CD and the average MODL_GROP_ORDR_BY for those groups.
+58.	Give all variant descriptions for family description 'New THAR Diesel MT'
+59.	Give the total PARTS amount billed for RO RO25D000730 for part category as Spares
+60.	Give the customer verbatim for the ROs created in Jan'25
+
+====================================================
+
+
+61. Show me all vehicle models and their seat capacities.
+
+SELECT `MM`.`MODL_DESC` AS `MODEL_DESCRIPTI
+ON`, `MM`.`SEAT_CAPCTY` AS `SEAT_CAPACITY` 
+FROM `srv_mst_dim_model_master` AS `MM` LIMIT 1000;
+
+
+
+62. SELECT `MM`.`MODL_CD` AS `MODEL_CODE`, `MM`.`MODL_DESC` AS `MODEL_DESCRIPTI
+ON`, `MM`.`SEAT_CAPCTY` AS `SEAT_CAPACITY`, CASE WHEN LOWER(`MM`.`ACTV_IND`) = 'y' THEN `MM`.`EMISSI
+ON` ELSE NULL END AS `EMISSI
+ON_STANDARD` 
+FROM `srv_mst_dim_model_master` AS `MM` LIMIT 1000;
+
+
+
+63. List all variants available under a particular model group.
+SELECT DISTINCT `MM`.`VARNT_CD` AS `VARIANT_CODE`, `MM`.`SEAT_CAPCTY` AS `SEAT_CAPACITY`, `MM`.`EMISSI
+ON` AS `EMISSI
+ON_STANDARD` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`ACTV_IND`) = 'y' 
+ORDER BY `MM`.`VARNT_CD` ASC LIMIT 1000;
+
+
+
+
+64. What fuel types do our products cover in the passenger segment?
+SELECT DISTINCT `MM`.`FUEL_TYPE` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`SEGMNT_CD`) = 'personal' LIMIT 1000;
+
+
+
+
+65. Give a summary of models by family group and their color codes.
+SELECT `MM`.`FAMLY_CD` AS `FAMILY_CODE`, `MM`.`COLR_CD` AS `COLOR_CODE`, COUNT(DISTINCT `MM`.`MODL_CD`) AS `MODEL_COUNT` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+GROUP BY `MM`.`FAMLY_CD`, `MM`.`COLR_CD` 
+ORDER BY `MM`.`FAMLY_CD`, `MM`.`COLR_CD` LIMIT 1000;
+
+
+
+
+66. Which models support automatic transmission?
+SELECT DISTINCT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`TRANSMISSI
+ON`) = 'automatic' LIMIT 1000;
+
+
+
+
+67.What is the seat capacity distribution across available models?
+Error: Error: Query execution failed: not enough values to unpack (expected 5, got 2)
+
+
+
+68. Provide details of OEM model codes linked to a specific sales model group.
+Error: Query execution failed: not enough values to unpack (expected 5, got 2)
+
+
+69. Which models were introduced or updated in the last quarter?
+WITH LastQuarter AS ( 
+SELECT DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 1 QUARTER), QUARTER) AS StartDate, DATE_SUB(DATE_TRUNC(CURRENT_DATE(), QUARTER), INTERVAL 1 DAY) AS EndDate ) 
+SELECT DISTINCT `MM`.`OEM_MODL_CD`, `MM`.`SAL_MODL_GROP` 
+FROM `MH_RO_HDR_DETAILS` AS `ROH` 
+INNER JOIN `srv_mst_dim_model_master` AS `MM` 
+ON `ROH`.`MODL_CD` = `MM`.`MODL_CD` CROSS JOIN LastQuarter AS `LQ` 
+WHERE `MM`.`SAL_MODL_GROP` IS NOT NULL AND `ROH`.`RO_DATE` BETWEEN `LQ`.`StartDate` AND `LQ`.`EndDate` 
+ORDER BY `MM`.`OEM_MODL_CD` LIMIT 1000;
+
+
+
+70. Show all models discontinued recently (inactive indicator).
+SELECT DISTINCT `MM`.`OEM_MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`ACTV_IND`) = 'n' AND `MM`.`SAL_MODL_GROP` IS NOT NULL 
+ORDER BY `MM`.`OEM_MODL_CD` ASC LIMIT 1000;
+
+
+====================================================
+71. list all the dealders in the cities under north zone
+
+SELECT DISTINCT `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`LOCTN_NAME` AS `LOCATI
+ON_NAME` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`Z
+ONE_NAME`) = 'north zone' LIMIT 1000;
+
+
+
+
+
+72. Who are the sales and service points of contact for a specific dealer-	J S GROVER AUTOS PVT LTD 
+
+SELECT `AD`.`DELR_NAME`, `AD`.`ASM_NAME`, `AD`.`CCM_NAME`, `AD`.`RSM_NAME`, `AD`.`RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`DELR_NAME`) = 'j s grover autos pvt ltd' LIMIT 1000;
+
+
+
+
+
+73. Show dealer details with active sales organization by product division.
+SELECT `AD`.`DELR_NAME`, `AD`.`PRODCT_DIVSN`, `AD`.`DELR_CD`, `AD`.`LOCTN_NAME`, `AD`.`AREA_NAME`, `AD`.`Z
+ONE_NAME`, `AD`.`ASM_NAME`, `AD`.`CCM_NAME`, `AD`.`RSM_NAME`, `AD`.`RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`DELR_NAME`) = 'j s grover autos pvt ltd' AND `AD`.`ACTV_IND` = 'Y' LIMIT 1000;
+
+
+
+
+74. give list of dealers with specific zones
+
+SELECT DISTINCT `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`Z
+ONE_NAME` AS `DEALER_Z
+ONE` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+ORDER BY `AD`.`Z
+ONE_NAME`, `AD`.`DELR_NAME` LIMIT 1000;
+
+
+
+75. What is the escalation matrix for dealer complaints?
+
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`Z
+ONE_NAME` AS `Z
+ONE_NAME`, COUNT(`ROHDR`.`RO_ID`) AS `COMPLAINT_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+WHERE LOWER(`ROHDR`.`SA_FEEDBCK_STATS`) = 'y' 
+GROUP BY `AD`.`DELR_NAME`, `AD`.`Z
+ONE_NAME` 
+ORDER BY `COMPLAINT_COUNT` DESC LIMIT 1000;
+
+
+
+76. how many inactive dealders are there
+
+
+SELECT COUNT(*) AS `INACTIVE_DEALER_COUNT` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`ACTV_IND`) = 'n' LIMIT 1000;
+
+
+77. Which locations have both sales and service facilities?
+
+
+SELECT `AD`.`LOCTN_CD`, `AD`.`LOCTN_NAME` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`ACTV_IND`) = 'y' 
+GROUP BY `AD`.`LOCTN_CD`, `AD`.`LOCTN_NAME` 
+HAVING COUNT(DISTINCT `AD`.`PRODCT_DIVSN`) > 1 LIMIT 1000;
+
+
+
+78. List top 10 dealers by batch pick-up frequency.
+Need to reframe question
+
+
+79. Identify dealers with online booking capabilities.
+
+SELECT DISTINCT `AD`.`DELR_NAME` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `AD`.`LOCTN_CD` = `ROHDR`.`LOCTN_CD` AND `AD`.`PARNT_GROP` = `ROHDR`.`PARNT_GROP` AND `AD`.`PRODCT_DIVSN` = `ROHDR`.`PRODCT_DIVSN` 
+WHERE LOWER(`ROHDR`.`
+ONLNE_PAYMNT_FLG`) = 'y' 
+ORDER BY `AD`.`DELR_NAME` ASC LIMIT 1000
+
+
+
+
+80. give details of the dealer "RAJ MOTORS"
+
+
+
+SELECT `AD`.`DELR_NAME`, `AD`.`PRODCT_DIVSN`, `AD`.`ACTV_IND`, `AD`.`PARNT_GROP`, `AD`.`LOCTN_NAME`, `AD`.`LOCTN_CD`, `AD`.`DELR_CD`, `AD`.`AREA_NAME`, `AD`.`Z
+ONE_NAME`, `AD`.`ASM_NAME`, `AD`.`CCM_NAME`, `AD`.`RSM_NAME`, `AD`.`RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE LOWER(`AD`.`DELR_NAME`) = 'raj motors' LIMIT 1000;
+
+
+
+
+====================================================
+
+81. List repair orders closed in the last 200 days.
+SELECT `ROHDR`.`RO_ID`, `ROHDR`.`RO_CLOSED_DATE` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_CLOSED_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 200 DAY) AND CURRENT_DATE() LIMIT 1000;
+
+
+
+82. What is the average turnaround time for service orders by location?
+
+SELECT `ROHDR`.`LOCTN_CD` AS `LOCATI
+ON_CODE`, ROUND(AVG(DATE_DIFF(`ROHDR`.`RO_CLOSED_DATE`, `ROHDR`.`RO_DATE`, DAY)), 1) AS `AVERAGE_TURNAROUND_TIME_DAYS` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_CLOSED_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 200 DAY) AND CURRENT_DATE() AND `ROHDR`.`RO_DATE` IS NOT NULL AND `ROHDR`.`RO_CLOSED_DATE` IS NOT NULL 
+GROUP BY `ROHDR`.`LOCTN_CD` LIMIT 1000;
+
+
+
+
+
+83. Show ROs with delay or cancellation reasons in last one year
+SELECT `ROHDR`.`RO_ID`, `ROHDR`.`RO_DATE` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE (`ROHDR`.`REPAIR_ORDER_DELAY_REAS
+ON` IS NOT NULL OR `ROHDR`.`REPAIR_ORDER_CANCEL_REAS
+ON` IS NOT NULL) AND `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+ORDER BY `ROHDR`.`RO_DATE` DESC LIMIT 1000;
+
+84. Which repair orders involved warranty claims and what were the outcomes?
+SELECT `ROHDR`.`RO_ID`, `ROHDR`.`RO_DATE`, `ROHDR`.`WARRANTY_FLAG` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`WARRANTY_FLAG`) = 'warranty' LIMIT 1000;
+
+
+
+85. Identify repeat repairs for the vehicles in month of Feb'25
+
+
+SELECT DISTINCT `ROHDR`.`RO_ID`, `ROHDR`.`VIN`, `ROHDR`.`RO_DATE`, `ROHDR`.`REPEAT_REPAIR_FLAG` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE '2025-02-01' AND DATE '2025-02-28' AND LOWER(`ROHDR`.`REPEAT_REPAIR_FLAG`) = 'y' LIMIT 1000;
+
+86. Find all ROs with express service indicated.
+
+SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE '2025-02-01' AND DATE '2025-02-28' AND LOWER(`ROHDR`.`EXPRS_SERVC_IND`) = 'y' AND LOWER(`ROHDR`.`REPEAT_REPAIR_FLAG`) = 'y' LIMIT 1000;
+
+
+
+
+87. Show service orders with accessories installed.
+SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`ACCESORIES_FLAG` = 1 AND LOWER(`ROHDR`.`REPEAT_REPAIR_FLAG`) = 'y' AND LOWER(`ROHDR`.`EXPRS_SERVC_IND`) = 'y' AND `ROHDR`.`RO_DATE` BETWEEN DATE '2025-02-01' AND DATE '2025-02-28' LIMIT 1000;
+
+
+
+
+88. Which ROs had online payments?
+
+SELECT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`
+ONLNE_PAYMNT_FLG`) = 'y' AND `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+ORDER BY `ROHDR`.`RO_DATE` DESC LIMIT 1000;
+
+
+
+89. What are the common causes of RO cancellations last year
+SELECT `ROHDR`.`REPAIR_ORDER_CANCEL_REAS
+ON`, COUNT(*) AS `CANCELLATI
+ON_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_CANCL_DATE` BETWEEN DATE '2023-01-01' AND DATE '2023-12-31' 
+GROUP BY `ROHDR`.`REPAIR_ORDER_CANCEL_REAS
+ON` 
+ORDER BY `CANCELLATI
+ON_COUNT` DESC LIMIT 1000;
+
+
+90. List all ROs with service delay beyond 72 hours.
+SELECT `ROHDR`.`RO_ID`, `ROHDR`.`RO_CLOSE_DIFF` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE SAFE_CAST(`ROHDR`.`RO_CLOSE_DIFF` AS FLOAT64) > 72 AND `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+ORDER BY `ROHDR`.`RO_DATE` DESC LIMIT 1000;
+
+====================================================
+
+91. Show all customer verbatim feedback for the last year
+
+SELECT `AD`.`DELR_NAME` AS `DEALER`, `AD`.`Z
+ONE_NAME` AS `DEALER_Z
+ONE`, EXTRACT(YEAR 
+FROM `ROHDR`.`RO_DATE`) AS `YEAR`, FORMAT_DATE('%b-%y', DATE_TRUNC(`ROHDR`.`RO_DATE`, M
+ONTH)) AS `M
+ONTH`, `CV`.`CUST_VERBTM_DESC` AS `CUSTOMER_FEEDBACK`, `CV`.`RO_NUMBER` AS `REPAIR_ORDER_NUMBER`, `CV`.`VERBATIM_GROUP_DESC` AS `FEEDBACK_CATEGORY`, `ROHDR`.`RO_DATE` AS `SERVICE_DATE` 
+FROM `verbatim_cmm_aruna` AS `CV` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `CV`.`SV_RO_HDR_SK` = `ROHDR`.`SV_RO_HDR_SK` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+ORDER BY `SERVICE_DATE` DESC LIMIT 1000;
+
+
+
+92. What are the most frequently mentioned issues in customer complaints?
+WITH FeedbackCounts AS ( 
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`Z
+ONE_NAME` AS `DEALER_Z
+ONE`, EXTRACT(YEAR 
+FROM `ROHDR`.`RO_DATE`) AS `YEAR`, FORMAT_DATE('%b-%y', DATE_TRUNC(`ROHDR`.`RO_DATE`, M
+ONTH)) AS `M
+ONTH`, `CV`.`CUST_VERBTM_DESC` AS `CUSTOMER_FEEDBACK`, `ROHDR`.`RO_ID` AS `REPAIR_ORDER_NUMBER`, `CV`.`VERBATIM_GROUP_DESC` AS `FEEDBACK_CATEGORY`, `ROHDR`.`RO_DATE` AS `SERVICE_DATE`, COUNT(*) AS `COMPLAINT_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `verbatim_cmm_aruna` AS `CV` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `CV`.`SV_RO_HDR_SK` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+GROUP BY `AD`.`DELR_NAME`, `AD`.`Z
+ONE_NAME`, `YEAR`, `M
+ONTH`, `CV`.`CUST_VERBTM_DESC`, `ROHDR`.`RO_ID`, `CV`.`VERBATIM_GROUP_DESC`, `ROHDR`.`RO_DATE` ) 
+SELECT `DEALER_NAME`, `DEALER_Z
+ONE`, `YEAR`, `M
+ONTH`, `CUSTOMER_FEEDBACK`, `REPAIR_ORDER_NUMBER`, `FEEDBACK_CATEGORY`, `SERVICE_DATE` 
+FROM `FeedbackCounts` 
+ORDER BY `COMPLAINT_COUNT` DESC LIMIT 1000;
+
+
+
+93. Which locations receive the highest positive feedback?
+SELECT `AD`.`LOCTN_NAME`, COUNT(`CV`.`SV_RO_HDR_SK`) AS `POSITIVE_FEEDBACK_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `verbatim_cmm_aruna` AS `CV` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `CV`.`SV_RO_HDR_SK` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+GROUP BY `AD`.`LOCTN_NAME` 
+ORDER BY `POSITIVE_FEEDBACK_COUNT` DESC LIMIT 10;
+
+
+
+94. Analyze verbatim feedback by dealer or product division.
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, `ROHDR`.`PRODCT_DIVSN` AS `PRODUCT_DIVISI
+ON`, COUNT(DISTINCT `ROHDR`.`RO_ID`) AS `REPAIR_ORDER_COUNT`, STRING_AGG(`CV`.`CUST_VERBTM_DESC`, '; ') AS `CUSTOMER_VERBATIMS` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `verbatim_cmm_aruna` AS `CV` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `CV`.`SV_RO_HDR_SK` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+GROUP BY `AD`.`DELR_NAME`, `ROHDR`.`PRODCT_DIVSN` 
+ORDER BY `AD`.`DELR_NAME`, `ROHDR`.`PRODCT_DIVSN` LIMIT 1000;
+
+
+
+95. What are the top verbatim groups/codes from service customers?
+SELECT `CV`.`VERBATIM_GROUP`, `CV`.`VERBATIM_CODE`, COUNT(*) AS `FEEDBACK_COUNT` 
+FROM `verbatim_cmm_aruna` AS `CV` 
+GROUP BY `CV`.`VERBATIM_GROUP`, `CV`.`VERBATIM_CODE` 
+ORDER BY `FEEDBACK_COUNT` DESC LIMIT 10
+
+
+====================================================
+
+96. What are the most commonly used parts in recent service orders?
+SELECT `RP`.`PART_CODE`, `RP`.`PART_DESC`, ROUND(SUM(SAFE_CAST(`RP`.`PART_QUANTITY` AS FLOAT64)), 1) AS `TOTAL_PART_QUANTITY`, COUNT(DISTINCT `ROHDR`.`RO_ID`) AS `REPAIR_ORDER_COUNT` 
+FROM `MH_RO_PARTS` AS `RP` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `RP`.`SV_RO_BILL_HDR_SK` = `ROHDR`.`SV_RO_BILL_HDR_SK` 
+INNER JOIN `verbatim_cmm_aruna` AS `CV` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `CV`.`SV_RO_HDR_SK` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 90 DAY) AND CURRENT_DATE() 
+GROUP BY `RP`.`PART_CODE`, `RP`.`PART_DESC` 
+ORDER BY `TOTAL_PART_QUANTITY` DESC LIMIT 1000;
+
+
+
+97. List parts with the highest consumption by model group.
+SELECT `MM`.`MODL_GROP_CD` AS `MODEL_GROUP_CODE`, `RP`.`PART_DESC` AS `PART_DESCRIPTI
+ON`, ROUND(SUM(SAFE_CAST(`RP`.`PART_QUANTITY` AS FLOAT64)), 1) AS `TOTAL_QUANTITY` 
+FROM `MH_RO_PARTS` AS `RP` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `RP`.`SV_RO_BILL_HDR_SK` = `ROHDR`.`SV_RO_BILL_HDR_SK` 
+INNER JOIN `srv_mst_dim_model_master` AS `MM` 
+ON `ROHDR`.`MODL_CD` = `MM`.`MODL_CD` 
+GROUP BY `MM`.`MODL_GROP_CD`, `RP`.`PART_DESC` 
+ORDER BY `MM`.`MODL_GROP_CD`, `TOTAL_QUANTITY` DESC LIMIT 1000;
+
+
+
+
+98. Analyze parts discounts by part category or type.
+SELECT `RP`.`PART_CATEGORY_DESCRIPTI
+ON`, `RP`.`PART_TYPE_NAME`, ROUND(SUM(SAFE_CAST(`RP`.`PART_DISCNT_AMNT` AS FLOAT64)), 1) AS `TOTAL_PARTS_DISCOUNT` 
+FROM `MH_RO_PARTS` AS `RP` 
+GROUP BY `RP`.`PART_CATEGORY_DESCRIPTI
+ON`, `RP`.`PART_TYPE_NAME` 
+ORDER BY `TOTAL_PARTS_DISCOUNT` DESC LIMIT 1000
+
+
+
+
+99. Compare actual vs. standard labour hours for services rendered.
+WITH Labour_Agg AS ( 
+SELECT `LAB`.`SV_RO_HDR_SK`, SUM(SAFE_CAST(`LAB`.`LABR_CHARG_HRS` AS FLOAT64)) AS `TOTAL_LABR_CHARG_HRS`, SUM(SAFE_CAST(`LAB`.`STANDRD_HRS` AS FLOAT64)) AS `TOTAL_STANDRD_HRS` 
+FROM `MH_RO_LABOUR` AS `LAB` 
+GROUP BY `LAB`.`SV_RO_HDR_SK` ) 
+SELECT `PART`.`PART_CATEGORY_DESCRIPTI
+ON`, `PART`.`PART_TYPE_NAME`, ROUND(SUM(Labour_Agg.`TOTAL_LABR_CHARG_HRS`), 1) AS `ACTUAL_LABOUR_HOURS`, ROUND(SUM(Labour_Agg.`TOTAL_STANDRD_HRS`), 1) AS `STANDARD_LABOUR_HOURS` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN Labour_Agg 
+ON `ROHDR`.`SV_RO_HDR_SK` = Labour_Agg.`SV_RO_HDR_SK` 
+INNER JOIN `MH_RO_PARTS` AS `PART` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `PART`.`SV_RO_HDR_SK` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+GROUP BY `PART`.`PART_CATEGORY_DESCRIPTI
+ON`, `PART`.`PART_TYPE_NAME` 
+ORDER BY `PART`.`PART_CATEGORY_DESCRIPTI
+ON`, `PART`.`PART_TYPE_NAME` LIMIT 1000;
+
+
+
+100. What is the parts revenue breakdown by product division or location?
+
+SELECT `ROHDR`.`PRODCT_DIVSN`, `ROHDR`.`LOCTN_CD`, ROUND(SUM(SAFE_CAST(`ROHDR`.`PARTS_TOTL_AMNT` AS FLOAT64)), 1) AS `PARTS_REVENUE` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() 
+GROUP BY `ROHDR`.`PRODCT_DIVSN`, `ROHDR`.`LOCTN_CD` 
+ORDER BY `ROHDR`.`PRODCT_DIVSN`, `ROHDR`.`LOCTN_CD` LIMIT 1000;
+
+
+101. Show service orders where non-OEM parts were used.
+SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `MH_RO_PARTS` AS `PARTS` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `PARTS`.`SV_RO_HDR_SK` 
+WHERE `ROHDR`.`RO_DATE` BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR) AND CURRENT_DATE() AND LOWER(`PARTS`.`OEM_PART_IND`) = 'n' LIMIT 1000;
+
+
+102. Which labour activities generate the most revenue?
+
+SELECT `LAB`.`LABR_DESC`, ROUND(SUM(SAFE_CAST(`LAB`.`LABR_TOTL_AMNT` AS FLOAT64)), 1) AS `TOTAL_REVENUE` 
+FROM `MH_RO_LABOUR` AS `LAB` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `LAB`.`SV_RO_BILL_HDR_SK` = `ROHDR`.`SV_RO_BILL_HDR_SK` 
+GROUP BY `LAB`.`LABR_DESC` 
+ORDER BY `TOTAL_REVENUE` DESC LIMIT 1000;
+
+
+103. What are the total billable hours for a givEN location SIKKAR
+
+SELECT ROUND(SUM(SAFE_CAST(`LAB`.`LABR_CHARG_HRS` AS FLOAT64)), 1) AS `TOTAL_BILLABLE_HOURS` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `MH_RO_LABOUR` AS `LAB` 
+ON `ROHDR`.`SV_RO_BILL_HDR_SK` = `LAB`.`SV_RO_BILL_HDR_SK` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+WHERE LOWER(`AD`.`LOCTN_NAME`) = 'sikkar' LIMIT 1000;
+
+
+104. What is the ratio of labour to parts value in repair orders?
+WITH Labour_Sum AS ( 
+SELECT ROUND(SUM(SAFE_CAST(`LAB`.`LABR_TOTL_AMNT` AS FLOAT64)), 1) AS Total_Labour_Amount 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `MH_RO_LABOUR` AS `LAB` 
+ON `ROHDR`.`SV_RO_BILL_HDR_SK` = `LAB`.`SV_RO_BILL_HDR_SK` ), Parts_Sum AS ( 
+SELECT ROUND(SUM(SAFE_CAST(`PART`.`PART_TOTL_AMNT` AS FLOAT64)), 1) AS Total_Parts_Amount 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `MH_RO_PARTS` AS `PART` 
+ON `ROHDR`.`SV_RO_BILL_HDR_SK` = `PART`.`SV_RO_BILL_HDR_SK` ) 
+SELECT IFNULL(ROUND(Total_Labour_Amount / NULLIF(Total_Parts_Amount, 0), 2), 0) AS Labour_to_Parts_Ratio 
+FROM Labour_Sum, Parts_Sum LIMIT 1000;
+====================================================
+
+
+105. List vehicles with upcoming warranty expiry.
+SELECT `MODL`.`MODL_DESC` AS `MODEL_DESCRIPTI
+ON`, `ROHDR`.`RO_ID` AS `REPAIR_ORDER_ID`, `ROHDR`.`WARRANTY_AGEING_TDAY` AS `WARRANTY_AGEING_TODAY`, `ROHDR`.`ORGNL_WARNTY_EXPRY_DATE` AS `ORIGINAL_WARRANTY_EXPIRY_DATE`, `ROHDR`.`ORGNL_WARNTY_EXPRY_DATE` AS `WARRANTY_EXPIRY_DATE` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `srv_mst_dim_model_master` AS `MODL` 
+ON `ROHDR`.`MODL_CD` = `MODL`.`MODL_CD` 
+WHERE `ROHDR`.`ORGNL_WARNTY_EXPRY_DATE` >= CURRENT_DATE() 
+ORDER BY `ROHDR`.`ORGNL_WARNTY_EXPRY_DATE` ASC LIMIT 1000;
+
+
+106. Which vehicles are eligible for warranty but have not registered?
+nOT OK
+
+107. Show ROs serviced under active service campaigns.
+SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`SERVICE_CAMPAIGN_TYPE_NAME`) IS NOT NULL AND TRIM(`ROHDR`.`SERVICE_CAMPAIGN_TYPE_NAME`) <> '' LIMIT 1000;
+
+
+108. List all ROs linked to government vehicles.
+qUERY SEEMS WRONG:   SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`GOVT_VEHCL`) = 'y' LIMIT 1000
+
+
+
+
+109. Find vehicles enrolled in special shield/service programs.
+SELECT DISTINCT `ROHDR`.`RO_ID`, `ROHDR`.`SHIELD_REGISTRATI
+ON_FLAG`, `ROHDR`.`SHIELD_VALIDITY_FLAG`, `ROHDR`.`SCHEME_EXP_DATE` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`SHIELD_REGISTRATI
+ON_FLAG` IS NOT NULL OR `ROHDR`.`SHIELD_VALIDITY_FLAG` IS NOT NULL OR `ROHDR`.`SCHEME_EXP_DATE` IS NOT NULL LIMIT 1000;
+
+
+
+110. What is the average ageing bucket for warranty claims?
+SELECT ROUND(AVG(SAFE_CAST(`ROHDR`.`AGEING_BUCKET` AS FLOAT64)), 1) AS `AVERAGE_AGEING_BUCKET` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`WARRANTY_FLAG`) = 'warranty' LIMIT 1000;
+
+
+
+=====================================================
+
+
+All queries till here
+
+
+
+=====================================================
+
+how many dealers have both north and south zone
+
+WITH NorthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'north zone' ), SouthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'south zone' ) 
+SELECT COUNT(DISTINCT `NZD`.`DELR_CD`) AS `DEALERS_IN_BOTH_Z
+ONES` 
+FROM `NorthZoneDealers` AS `NZD` 
+INNER JOIN `SouthZoneDealers` AS `SZD` 
+ON `NZD`.`DELR_CD` = `SZD`.`DELR_CD`;
+
+
+
+=====================================================
+
+how many dealer have more than one zone
+
+
+SELECT COUNT(*) AS `DEALERS_WITH_MULTIPLE_Z
+ONES` 
+FROM (
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT LOWER(`AD`.`Z
+ONE_NAME`)) > 1) AS `MULTI_Z
+ONE_DEALERS`;
+
+
+answer is 67
+
+========================================
+
+give me 2 dealers who have more than one zone
+---
+
+
+give me all the zone details for these two dealers-- follow up questions-- seems to be wrong
+
+
+
+WITH Dealers_Multi_Zone AS ( 
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT `AD`.`Z
+ONE_NAME`) > 1 ) 
+SELECT `AD`.`DELR_CD` AS `DEALER_CODE`, `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`LOCTN_CD` AS `LOCATI
+ON_CODE`, `AD`.`LOCTN_NAME` AS `LOCATI
+ON_NAME`, `AD`.`Z
+ONE_NAME` AS `Z
+ONE_NAME`, `AD`.`AREA_NAME` AS `AREA_NAME`, `AD`.`ASM_NAME` AS `ASM_NAME`, `AD`.`CCM_NAME` AS `CCM_NAME`, `AD`.`RSM_NAME` AS `RSM_NAME`, `AD`.`RCCM_NAME` AS `RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES` AS `Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` AS `Z
+ONAL_HEAD_CUSTOMER_CARE` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+INNER JOIN Dealers_Multi_Zone AS `DMZ` 
+ON `AD`.`DELR_CD` = `DMZ`.`DELR_CD` 
+ORDER BY `AD`.`DELR_CD`, `AD`.`Z
+ONE_NAME` LIMIT 1000;
+
+
+
+
+
+========================================
+
+
+
+which dealer is the most preferred dealer
+
+449298
+
+ERAM MOTORS PVT. LTD.
+
+
+
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, COUNT(`ROHDR`.`RO_ID`) AS `REPAIR_ORDER_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+GROUP BY `AD`.`DELR_NAME` 
+ORDER BY `REPAIR_ORDER_COUNT` DESC LIMIT 1;
+
+
+
+========================================
+
+
+
+what is the highest number of ROs a particular dealer has
+
+
+same 
+
+
+
+========================================
+
+which is the most preferred model
+
+MAHINDRA BOLERO B6 (O) BS-VI	727108
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+	BOLMM0078780	BOLERO MDI-TC RIGID 7STR 2WD BSII	1
+
+
+
+
+
+
+========================================
+
+when was this RO created - follow up qusetion --wrong
+
+
+
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+
+PUPMM102511985	MAHINDRA BOLERO CAMPER 2WD (5 SEATER)	1
+
+========================================
+how many models have repair order count as 1
+
+310
+
+st all the models which have repari count as 1
+
+all 310
+========================================
+
+What is the revisit indicator for RO RO24B001437
+
+
+
+
+so many rows --check if that many records present in ro_hdr
+
+
+SELECT `ROHDR`.`REVIST_FLAG` AS `REVISIT_INDICATOR` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_ID` = 'RO24B001437' LIMIT 1000;
+
+
+========================================
+
+
+
+
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+
+
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+v
+
+
