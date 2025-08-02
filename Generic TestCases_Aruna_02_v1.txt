@@ -1,0 +1,395 @@
+1.	List all models with their descriptions. Model code, model group, family description
+2.	Show all dealers with the zones, area, location code, location name, product division, and parent group
+3.	Get the total number of repair orders (RO) created in Jan'25
+4.	Find the seat capacity for each model.
+5.	Show all customer verbatim entries for a specific RO number RO25A007880
+6.	Show Demanded Verbatim--Show Word Cloud
+7.	List distinct parts used in a particular repair order RO25D000730
+8.	Give count of distinct parts used in particular repair order RO25D000730
+9.	Give count of parts used in particular repair order RO25D000730 where count is more than 1 grouped by part code
+10.	Display distinct labour code and labour descriptions for the RO: RO25D000730
+11.	Display count of distinct labour descriptions for the RO: RO25D000730
+12.	Show the total amount billed for each RO RO25D000730
+13.	Give me the service advisor and the technician name
+14.	Get all distinct details related to Model Family Desc and Dealer details about this RO RO25D000730
+15.	Give all distinct Parts category group for the given RO
+16.	What are distinct labour type names used in this RO
+17.	Is the vehicle Govt vehicle?
+18.	Is it a Taxi
+19.	What was total part consumption for this RO
+20.	List all models that use diesel as fuel.
+21.	Find the top 5 models with the highest seat capacity.
+22.	List all dealers in a North zone along with their Locations
+23.	Show the total labour amount and parts amount for each RO from 01-Jan-2025 to 31-Jan-2025
+24.	Get all ROs closed within last 180 days
+25.	List all parts with a discount greater than 10% for the ROs created in Jan'25
+26.	Find all ROs where the vehicle is a government vehicle.
+27.	Show the number of ROs per dealer for the month of Jan'25
+28.	Who was the topmost dealer for Jan'25
+29.	Show the number of ROs per dealer and total value for the month of Jan'25 ordered by total value
+30.	List all models and their associated variants and fuel types.
+31.	Find all customer verbatim entries grouped by verbatim group for ROs created between 01-Jan-2024 to 30 June 2025
+32.	Get the total quantity of each part used across all ROs.
+33.	How many ROs cancelled in 2022
+34.	How many ROs for vehicles towed were cancelled
+35.	For how many ROs vehicles were towed
+36.	How many ROs are there which were created in Jan'25 and closed within 5 months
+37.	How many ROs were created in 2022 and cancelled in 2022
+38.	What is the average closing duration for the ROs created in 2024
+39.	How many ROs were created in 2022 and closed in 2022
+40.	What is odometer reading for the vehicle with VIN MB7A8CLLFMJC30464
+41.	What is the RO bill date for the same?
+42.	How many ROs were created for vehicles with parent group SVN01 in 2023
+43.	How many repair orders with parent group SVN01 were created in 2023
+44.	What is the promised date for RO RO24B001437
+45.	What is the model for RO RO24B001437
+46.	What is the revisit indicator for RO RO24B001437
+47.	How many ROs took more than 72 hours to be serviced
+48.	What is the basic labour amount and total labour amount for RO RO24B001437
+49.	Retrieve all active variants (ACTV_IND = 'Y') for each FUEL_TYPE and count how many unique model codes exist per fuel type. Sort in descending order of model count.
+50.	Get the top 5 TRANSMISSION types used across all models, and for each, list the number of distinct variant codes and the average SEAT_CAPCTY.
+51.	List all SEGMNT_CD values where the average SEAT_CAPCTY is greater than 5. For each segment, also return the STRING_AGG of MODL_DESC values associated with it.
+52.	Identify which PRODCT_DIVSN has the most distinct MODL_GROP_CD values. Return the division name, count of distinct model group codes, and the top 3 most frequent FUEL_TYPEs in that division.
+53.	For each MODL_GROP_DESC, calculate the number of active (ACTV_IND = 'Y') and inactive models. Return only those groups where more than 50% of entries are inactive.
+54.	Show the BATCH codes where both ELECTRIC and DIESEL fuel types exist. For each such BATCH, return the total number of model entries and count of each FUEL_TYPE.
+55.	Identify all TRIM_LEVLs associated with exactly one unique SEAT_CAPCTY. Return the TRIM_LEVL, SEAT_CAPCTY, and the number of distinct variant codes for each.
+56.	Group all models by EMISSION standard and return: number of models in each, number of distinct transmission types, the most common DRIV type per EMISSION
+57.	For each VARNT_DESC starting with 'ZX', list how many models share the same MODL_GROP_CD and the average MODL_GROP_ORDR_BY for those groups.
+58.	Give all variant descriptions for family description 'New THAR Diesel MT'
+59.	Give the total PARTS amount billed for RO RO25D000730 for part category as Spares
+60.	Give the customer verbatim for the ROs created in Jan'25
+
+====================================================
+
+
+61. Show me all vehicle models and their seat capacities.
+
+62. Which models are active and what are their emission standards?
+
+63. List all variants available under a particular model group.
+
+64. What fuel types do our products cover in the passenger segment?
+
+65. Give a summary of models by family group and their color codes.
+
+66. Which models support automatic transmission?
+
+67.What is the seat capacity distribution across available models?
+
+68. Provide details of OEM model codes linked to a specific sales model group.
+
+69. Which models were introduced or updated in the last quarter?
+
+70. Show all models discontinued recently (inactive indicator).
+
+====================================================
+71. List all dealers in a given city or region.
+
+72. Who are the sales and service points of contact for a specific dealer?
+
+73. Show dealer details with active sales organization by product division.
+
+74. Map dealers by geolocation (latitude/longitude).
+
+75. What is the escalation matrix for dealer complaints?
+
+76. Which dealers are currently active/inactive?
+
+77. Which locations have both sales and service facilities?
+
+78. List top 10 dealers by batch pick-up frequency.
+
+79. Identify dealers with online booking capabilities.
+
+80. Find all dealerships set up within a certain date range.
+
+====================================================
+
+81. List repair orders closed in the last 7 days.
+
+82. What is the average turnaround time for service orders by location?
+
+83. Show ROs with delay or cancellation reasons.
+
+84. Which repair orders involved warranty claims and what were the outcomes?
+
+85. Identify repeat repairs for a specific vehicle (by VIN or registration number).
+
+86. Find all ROs with express service indicated.
+
+87. Show service orders with accessories installed.
+
+88. Which ROs had online payments?
+
+89. What are the common causes of RO cancellations last month?
+
+90. List all ROs with service delay beyond 72 hours.
+
+====================================================
+
+91. Show all customer verbatim feedback for the last month.
+
+92. What are the most frequently mentioned issues in customer complaints?
+
+93. Which locations receive the highest positive feedback?
+
+94. Analyze verbatim feedback by dealer or product division.
+
+95. What are the top verbatim groups/codes from service customers?
+
+====================================================
+
+96. What are the most commonly used parts in recent service orders?
+
+97. List parts with the highest consumption by model group.
+
+98. Analyze parts discounts by part category or type.
+
+99. Compare actual vs. standard labour hours for services rendered.
+
+100. What is the parts revenue breakdown by product division or location?
+
+101. Show service orders where non-OEM parts were used.
+
+102. Which labour activities generate the most revenue?
+
+103. What are the total billable hours for a given technician or location?
+
+104. What is the ratio of labour to parts value in repair orders?
+
+====================================================
+
+
+105. List vehicles with upcoming warranty expiry.
+
+106. Which vehicles are eligible for warranty but have not registered?
+
+107. Show ROs serviced under active service campaigns.
+
+108. List all ROs linked to government vehicles.
+
+109. Find vehicles enrolled in special shield/service programs.
+
+110. What is the average ageing bucket for warranty claims?
+
+
+=====================================================
+
+
+All queries till here
+
+
+
+=====================================================
+
+how many dealers have both north and south zone
+
+WITH NorthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'north zone' ), SouthZoneDealers AS ( 
+SELECT DISTINCT `DDP`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `DDP` 
+WHERE LOWER(`DDP`.`Z
+ONE_NAME`) = 'south zone' ) 
+SELECT COUNT(DISTINCT `NZD`.`DELR_CD`) AS `DEALERS_IN_BOTH_Z
+ONES` 
+FROM `NorthZoneDealers` AS `NZD` 
+INNER JOIN `SouthZoneDealers` AS `SZD` 
+ON `NZD`.`DELR_CD` = `SZD`.`DELR_CD`;
+
+
+
+=====================================================
+
+how many dealer have more than one zone
+
+
+SELECT COUNT(*) AS `DEALERS_WITH_MULTIPLE_Z
+ONES` 
+FROM (
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT LOWER(`AD`.`Z
+ONE_NAME`)) > 1) AS `MULTI_Z
+ONE_DEALERS`;
+
+
+answer is 67
+
+========================================
+
+give me 2 dealers who have more than one zone
+---
+
+
+give me all the zone details for these two dealers-- follow up questions-- seems to be wrong
+
+
+
+WITH Dealers_Multi_Zone AS ( 
+SELECT `AD`.`DELR_CD` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+GROUP BY `AD`.`DELR_CD` 
+HAVING COUNT(DISTINCT `AD`.`Z
+ONE_NAME`) > 1 ) 
+SELECT `AD`.`DELR_CD` AS `DEALER_CODE`, `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`LOCTN_CD` AS `LOCATI
+ON_CODE`, `AD`.`LOCTN_NAME` AS `LOCATI
+ON_NAME`, `AD`.`Z
+ONE_NAME` AS `Z
+ONE_NAME`, `AD`.`AREA_NAME` AS `AREA_NAME`, `AD`.`ASM_NAME` AS `ASM_NAME`, `AD`.`CCM_NAME` AS `CCM_NAME`, `AD`.`RSM_NAME` AS `RSM_NAME`, `AD`.`RCCM_NAME` AS `RCCM_NAME`, `AD`.`Z
+ONAL_HEAD_SALES` AS `Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` AS `Z
+ONAL_HEAD_CUSTOMER_CARE` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+INNER JOIN Dealers_Multi_Zone AS `DMZ` 
+ON `AD`.`DELR_CD` = `DMZ`.`DELR_CD` 
+ORDER BY `AD`.`DELR_CD`, `AD`.`Z
+ONE_NAME` LIMIT 1000;
+
+
+
+
+
+========================================
+
+
+
+which dealer is the most preferred dealer
+
+449298
+
+ERAM MOTORS PVT. LTD.
+
+
+
+SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, COUNT(`ROHDR`.`RO_ID`) AS `REPAIR_ORDER_COUNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `ddp_ad_ai_final_dimension` AS `AD` 
+ON `ROHDR`.`LOCTN_CD` = `AD`.`LOCTN_CD` AND `ROHDR`.`PARNT_GROP` = `AD`.`PARNT_GROP` AND `ROHDR`.`PRODCT_DIVSN` = `AD`.`PRODCT_DIVSN` 
+GROUP BY `AD`.`DELR_NAME` 
+ORDER BY `REPAIR_ORDER_COUNT` DESC LIMIT 1;
+
+
+
+========================================
+
+
+
+what is the highest number of ROs a particular dealer has
+
+
+same 
+
+
+
+========================================
+
+which is the most preferred model
+
+MAHINDRA BOLERO B6 (O) BS-VI	727108
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+	BOLMM0078780	BOLERO MDI-TC RIGID 7STR 2WD BSII	1
+
+
+
+
+
+
+========================================
+
+when was this RO created - follow up qusetion --wrong
+
+
+
+
+
+
+========================================
+which model has the least number of repair orders and what is the count
+
+
+PUPMM102511985	MAHINDRA BOLERO CAMPER 2WD (5 SEATER)	1
+
+========================================
+how many models have repair order count as 1
+
+310
+
+st all the models which have repari count as 1
+
+all 310
+========================================
+
+What is the revisit indicator for RO RO24B001437
+
+
+
+
+so many rows --check if that many records present in ro_hdr
+
+
+SELECT `ROHDR`.`REVIST_FLAG` AS `REVISIT_INDICATOR` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE `ROHDR`.`RO_ID` = 'RO24B001437' LIMIT 1000;
+
+
+========================================
+
+
+
+
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+========================================
+
+
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+
+
+
+========================================
+
+
+
+
+
+
+v
+
+
