@@ -1,0 +1,200 @@
+2. List all models where the emission standard is "BS6 Phase 2".
+
+
+"SELECT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`EMISSI
+ON`) = 'bs6 phase 2' LIMIT 1000;"
+
+
+
+3. Which fuel types are available for models in the 'SUV' segment?'
+"SELECT DISTINCT `MM`.`FUEL_TYPE` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`SEGMNT_CD`) = 'suv' LIMIT 1000;"
+
+7. Which models have both petrol and diesel variants?
+
+"WITH `fuel_types` AS ( 
+SELECT `MM`.`MODL_CD` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`FUEL_TYPE`) IN ('petrol', 'diesel') 
+GROUP BY `MM`.`MODL_CD` 
+HAVING COUNT(DISTINCT LOWER(`MM`.`FUEL_TYPE`)) = 2 ) 
+SELECT DISTINCT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+INNER JOIN `fuel_types` AS `FT` 
+ON `MM`.`MODL_CD` = `FT`.`MODL_CD` 
+ORDER BY `MM`.`MODL_CD` LIMIT 1000;"
+
+
+12. Identify which fuel types are used in the "Pickup" segment.
+
+
+"SELECT DISTINCT `MM`.`FUEL_TYPE` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `MM`.`MODL_CD` = `ROHDR`.`MODL_CD` 
+WHERE LOWER(`ROHDR`.`SEGMNT_CD`) = 'pickup' LIMIT 1000;"
+
+
+14. List all inactive models introduced before 2023.
+
+"SELECT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`ACTV_IND`) <> 'y' AND LEFT(`MM`.`MODL_CD`, 4) < '2023' LIMIT 1000;"
+
+
+
+15. Which models belong to product division "Utility Vehicles"?
+	
+"SELECT DISTINCT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`PRODCT_DIVSN`) = 'utility vehicles' LIMIT 1000;"
+
+
+20. Find ROs with GOVT_VEHCL flag as 'Y' and bill amount over ₹10,000.
+"SELECT `ROHDR`.`RO_ID`, `ROHDR`.`DOC_AMNT` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`GOVT_VEHCL`) = 'y' AND SAFE_CAST(`ROHDR`.`DOC_AMNT` AS FLOAT64) > 10000 LIMIT 1000;"
+
+
+
+
+35 What is the average labour charge per service category?
+
+NA
+
+
+
+
+37. Identify all ROs where the labour group is "Electrical".
+
+
+"SELECT DISTINCT `ROHDR`.`RO_ID` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `MH_RO_LABOUR` AS `LAB` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `LAB`.`SV_RO_HDR_SK` 
+WHERE LOWER(`LAB`.`LABOUR_GROUP_NAME`) = 'electrical' LIMIT 1000;"
+
+
+47. List all parts where the discount type is "Seasonal".
+
+
+
+"SELECT `RP`.`PART_CODE`, `RP`.`PART_DESC`, ROUND(SAFE_CAST(`RP`.`PART_DISCNT_AMNT` AS FLOAT64), 1) AS `PART_DISCOUNT_AMOUNT`, `RP`.`DISCOUNT_TYPE_NAME` 
+FROM `MH_RO_PARTS` AS `RP` 
+WHERE LOWER(`RP`.`DISCOUNT_TYPE_NAME`) = 'seasonal' LIMIT 1000;"
+
+
+
+
+
+49. Top 5 parts by quantity used for Diesel vehicles.
+
+"SELECT `RP`.`PART_DESC`, ROUND(SUM(SAFE_CAST(`RP`.`PART_QUANTITY` AS FLOAT64)), 1) AS `TOTAL_QUANTITY` 
+FROM `MH_RO_PARTS` AS `RP` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `RP`.`SV_RO_BILL_HDR_SK` = `ROHDR`.`SV_RO_BILL_HDR_SK` 
+WHERE LOWER(`ROHDR`.`SEGMNT_CD`) = 'diesel' 
+GROUP BY `RP`.`PART_DESC` 
+ORDER BY `TOTAL_QUANTITY` DESC LIMIT 5;"
+
+
+
+57. Show all feedback grouped by RO_ID for models in segment "SUV".
+
+"SELECT `ROHDR`.`RO_ID`, STRING_AGG(DISTINCT `CV`.`DEMANDED_VERBATIM`, '; ') AS `CUSTOMER_FEEDBACK` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+INNER JOIN `srv_mst_dim_model_master` AS `MM` 
+ON `ROHDR`.`MODL_CD` = `MM`.`MODL_CD` 
+INNER JOIN `verbatim_cmm_aruna` AS `CV` 
+ON `ROHDR`.`SV_RO_HDR_SK` = `CV`.`SV_RO_HDR_SK` 
+WHERE LOWER(`MM`.`SEGMNT_CD`) = 'suv' 
+GROUP BY `ROHDR`.`RO_ID` LIMIT 1000;"
+
+
+
+
+
+61,. Which dealers were created after Jan 2024?
+
+NA
+
+62. List all dealers with batch_pickd_flag = 'Y'.
+NA
+
+
+
+65. Identify dealers where delr_disply_ind is 'N'.
+NA
+
+
+
+70. List vehicle VINs serviced under active campaigns with warranty flag = 'Y'.
+
+"SELECT DISTINCT `ROHDR`.`VIN` 
+FROM `MH_RO_HDR_DETAILS` AS `ROHDR` 
+WHERE LOWER(`ROHDR`.`WARRANTY_FLAG`) = 'y' AND LOWER(`ROHDR`.`SERVICE_CAMPAIGN_TYPE_NAME`) LIKE '%active%' LIMIT 1000;"
+
+
+
+
+85. Give all distinct Parts category group for the given RO
+
+"SELECT DISTINCT `PARTS`.`PART_CATEGORY_GROUP` 
+FROM `MH_RO_PARTS` AS `PARTS` 
+INNER JOIN `MH_RO_HDR_DETAILS` AS `ROHDR` 
+ON `PARTS`.`SV_RO_HDR_SK` = `ROHDR`.`SV_RO_HDR_SK` 
+WHERE `ROHDR`.`RO_ID` = 'specified_repair_order_number' LIMIT 1000;"
+
+
+
+88.  List all variants available under a particular model group
+
+"SELECT DISTINCT `MM`.`VARNT_CD`, `MM`.`VARNT_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE `MM`.`MODL_GROP_CD` = 'specified_model_group' LIMIT 1000;"
+
+
+91.  Which models support automatic transmission?
+
+"SELECT DISTINCT `MM`.`MODL_CD`, `MM`.`MODL_DESC` 
+FROM `srv_mst_dim_model_master` AS `MM` 
+WHERE LOWER(`MM`.`TRANSMISSI
+ON`) = 'automatic' LIMIT 1000;"
+
+
+
+
+92. What is the seat capacity distribution across available models?
+NA
+
+
+
+93.  Provide details of OEM model codes linked to a specific sales model group'
+NA
+
+
+
+97.  Who are the sales and service points of contact for a specific dealer?
+"SELECT `AD`.`DELR_NAME` AS `DEALER_NAME`, `AD`.`LOCTN_NAME` AS `LOCATI
+ON_NAME`, `AD`.`ASM_NAME` AS `AREA_SALES_MANAGER`, `AD`.`CCM_NAME` AS `CUSTOMER_CARE_MANAGER`, `AD`.`RSM_NAME` AS `REGI
+ONAL_SALES_MANAGER`, `AD`.`RCCM_NAME` AS `REGI
+ONAL_CUSTOMER_CARE_MANAGER`, `AD`.`Z
+ONAL_HEAD_SALES` AS `Z
+ONAL_HEAD_SALES`, `AD`.`Z
+ONAL_HEAD_CC` AS `Z
+ONAL_HEAD_CUSTOMER_CARE` 
+FROM `ddp_ad_ai_final_dimension` AS `AD` 
+WHERE `AD`.`DELR_CD` = 'SPECIFIC_DEALER_CODE' LIMIT 1000;"
+
+
+
+
+99.  Map dealers by geolocation (latitude/longitude)
+NA
+
+
+100.  What is the escalation matrix for dealer complaints?
+NA
