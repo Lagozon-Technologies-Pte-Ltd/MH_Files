@@ -16,5 +16,12 @@ select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.MH_RO_LAB
 select * from mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.verbatim_cmm_aruna
 
 
+
+Select modl_desc as model_description
+, seat_capcty as seat_capacity
+From mdp-ad-gld-dta-dev-133464.mdp_ad_gld_bqd_services_non_oh.srv_mst_dim_model_master 
+Order by safe_cast(seat_capcty as float64) desc, modl_desc asc limit 5 
+
+
 ==============================================
 
