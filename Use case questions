@@ -1,0 +1,81 @@
+use case questionos -
+
+Use case 1 -
+Provide the list of Top 10 consumed OEM part under  Repair  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under  Charging  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under  En-Route  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under "Pre-Sale/PDI"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under Accessories"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under "Bodyshop"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under "Paid Service"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM part under "Free Service"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under  Repair  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under  Charging  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under  En-Route  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under "Pre-Sale/PDI"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under Accessories"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under "Bodyshop"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under "Paid Service"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Local part under "Free Service"  from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM part consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM part consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM part consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM part consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Local part consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Local part consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Local part consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Local part consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM part consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM part consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM part consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM part consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  Local part consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  Local part consumption under    PreSale/PDI from 01-Jan-2024 to 31-dec-2024
+
+
+Use case 2 -
+"Provide the list of Top 10 consumed OEM Labour under  Repair  from 01-Jan-2024 to 31-Jan-2024     
+===========================
+
+Provide the list of Top 10 consumed OEM Labour under repair from 01-Jan-2024 to 31-Jan-2024 ======
+
+Provide the list of Top 10 consumed OEM Labour under Paid SERvice from 3rd Jan 2024 to 4th Jan 2024"
+Provide the list of Top 10 consumed OEM Labour under  Charging  from 01-Jan-2024 to 31-Jan-2024
+Provide the list of Top 10 consumed OEM Labour under  En-Route  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM Labour under "Pre-Sale/PDI"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM Labour under Accessories"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM Labour under "Bodyshop"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM Labour under "Paid Service"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed OEM Labour under "Free Service"  from 01-Jan-2024 to 31-dec-2024
+"Provide the list of Top 10 consumed Dealer Labour under  Repair  from 01-Jan-2024 to 31-dec-2024  
+==========================
+
+Provide the list of Top 10 consumed Dealer Labour under  Repair  from 01-Jan-2024 to 31-Mar-2024 "
+Provide the list of Top 10 consumed Dealer Labour under  Charging  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under  En-Route  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under "Pre-Sale/PDI"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under Accessories"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under "Bodyshop"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under "Paid Service"  from 01-Jan-2024 to 31-dec-2024
+Provide the list of Top 10 consumed Dealer Labour under "Free Service"  from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM Labour consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM Labour consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM Labour consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest OEM Labour consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Dealer Labour consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Dealer Labour consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Dealer Labour consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 10 Dealers with highest Dealer Labour consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM Labour consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM Labour consumption under    Pre-Sale/PDI from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM Labour consumption under    Bodyshop from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  OEM Labour consumption under    Accessories from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  Dealer Labour consumption under    Repair from 01-Jan-2024 to 31-dec-2024
+List the Top 5 Dealer Zone & Area Office (Dealer Area Office) with highest  Dealer Labour consumption under    PreSale/PDI from 01-Jan-2024 to 31-dec-2024
+
+
+
+
+
+
+
