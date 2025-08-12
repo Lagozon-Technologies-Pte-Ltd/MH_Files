@@ -266,10 +266,46 @@ WHERE `ROHDR`.`RO_ID` = 'RO24B001437' LIMIT 1000;
 ========================================
 
 
+Scenario 1: RO Count by RO_DATE
+Rule: Count(DISTINCT ROHDR.SV_RO_HDR_SK) based on RO_DATE
+Test Questions:
 
+"How many ROs were opened on 2024-07-15?"
 
+"What is the total number of ROs created in June 2024?"
 
+"Give me the monthly RO count for 2024 based on RO creation date."
 
-v
+Scenario 2: Bill Count by RO_BILL_DATE
+Rule: Count(DISTINCT ROHDR.SV_RO_HDR_SK) based on RO_BILL_DATE
+Test Questions:
+
+"How many bills were generated on 2024-07-15?"
+
+"Show me the weekly bill count for July 2024."
+
+"What is the total number of bills issued in Q2 2024?"
+
+Scenario 3: Net RO Count
+Rule: RO Count (based on RO_DATE) − RO Canceled Count (based on RO_CANCL_DATE)
+Test Questions:
+
+"What is the net RO count for July 2024?"
+
+"Give me the net RO count for each month in 2024."
+
+"What is the net RO count for Q1 2024 by location?"
+
+Scenario 4: Revenue
+Rule: SUM(Revenue) based on BILL_DATE − SUM(Revenue) based on Bill_Cancel_date
+(Revenue is likely calculated from PARTS_TOTL_AMNT + LABR_TOTL_AMNT in MH_RO_HDR_DETAILS.)
+Test Questions:
+
+"What is the total revenue for July 2024?"
+
+"Show the monthly revenue for 2024 after deducting canceled bills."
+
+"What was the net revenue for Q2 2024 for the SUV segment?"
+
 
 
